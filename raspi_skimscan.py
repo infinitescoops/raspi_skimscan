@@ -51,11 +51,11 @@ while True:
 	print("found %d devices" % len(nearby_devices))
 
 	for addr, name in nearby_devices:
-		if (name == "HC-05") or (name == "HC-03") or (name == "HC-06"):
+		if (name == "HC-05") or (name == "HC-03") or (name == "HC-06") or (name == "HC-08"):
 			draw.rectangle((0, 0, width, height), outline=0, fill=0)
 			draw.text((0, 12), "Potential skimmer", font=font, fill=255)
 			draw.text((0, 24), name + " found.", font=font, fill=255)
-			draw.text((0, 36), "Skip this pump.", font=font, fill=255)
+			draw.text((0,24), addr + " is the addr.", font=font, fill=255)
 
 			disp.image(image)
 			disp.display()
