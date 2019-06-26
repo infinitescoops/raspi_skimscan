@@ -11,6 +11,7 @@ import bluetooth
 import sys
 import Adafruit_GPIO.SPI as SPI
 import Adafruit_SSD1306
+import RPi.GPIO as GPIO
 
 from PIL import Image
 from PIL import ImageDraw
@@ -23,6 +24,11 @@ RST = 24     # on the PiOLED this pin isnt used
 DC = 23
 SPI_PORT = 0
 SPI_DEVICE = 0
+
+# setting GPIO pin 21 (board pin 40) to be a low output
+GPIO.setMode(GPIO.BCM)
+GPIO.setup(21,GPIO.OUT)
+GPIO.output(21, 0)
 
 disp = Adafruit_SSD1306.SSD1306_128_64(rst=RST, dc=DC, spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE, max_speed_hz=8000000))
 disp.begin()
