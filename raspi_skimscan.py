@@ -10,7 +10,10 @@ import time
 import bluetooth
 import sys
 import Adafruit_GPIO.SPI as SPI
-import Adafruit_SSD1306
+import adafruit_SSD1306
+import board
+import dusio
+import digitalio
 import RPi.GPIO as GPIO
 
 from PIL import Image
@@ -30,7 +33,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(21,GPIO.OUT)
 GPIO.output(21, 0)
 
-disp = Adafruit_SSD1306.SSD1306_128_64(rst=RST, dc=DC, spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE, max_speed_hz=8000000))
+disp = adafruit_SSD1306.SSD1306_128_64(rst=RST, dc=DC, spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE, max_speed_hz=8000000))
 disp.begin()
 
 time.sleep(3)
